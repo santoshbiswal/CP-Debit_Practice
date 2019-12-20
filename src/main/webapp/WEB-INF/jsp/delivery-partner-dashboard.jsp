@@ -153,7 +153,7 @@
 		function getShipmentBookingDetails(searchCriteria){
 
 			var data=JSON.stringify(searchCriteria);
-			alert(data);
+			//alert(data);
 
 			 $.ajax({
 		         type: "POST",
@@ -165,9 +165,9 @@
 		         timeout: 600000,
 		         success: function (result) {
 
-			         alert("Success");
+			         //alert("Success");
 			         var stringResult=JSON.stringify(result);
-			         alert(stringResult);
+			         //alert(stringResult);
 			         displayTable(result);
 		         },
 		         error: function (e) {
@@ -201,7 +201,7 @@
 
 				for(var i = 0; i < resultArr.length; i++){
 
-					tableDataRow=tableDataRow+"<tr><td>"+(i+1)+"</td><td><a href='/dtdc-registration.htm'>"+resultArr[i]["shipmentNo"]+"</td><td>"+resultArr[i]["source"]+"</td><td>"+resultArr[i]["destination"]+"</td><td>"+resultArr[i]["dateOfBooking"]+"</td><td>"+resultArr[i]["status"]+"</td></tr>"
+					tableDataRow=tableDataRow+"<tr><td>"+(i+1)+"</td><td><a href='/show-specific-shipment-details.htm?shipmentId="+resultArr[i]["shipmentNo"]+"'>"+resultArr[i]["shipmentNo"]+"</td><td>"+resultArr[i]["source"]+"</td><td>"+resultArr[i]["destination"]+"</td><td>"+resultArr[i]["dateOfBooking"]+"</td><td>"+resultArr[i]["status"]+"</td></tr>"
 				}
 
 				tableDataRow=tableDataRow+"</tbody>";
@@ -221,7 +221,7 @@
 			for(var i = 0; i < resultArr.length; i++){
 
 				dataTable.row.add([ (i+1) ,
-					  "<a href='/dtdc-registration.htm'>"+resultArr[i]["shipmentNo"]+"</a>",
+					  "<a href='/show-specific-shipment-details.htm?shipmentId="+resultArr[i]["shipmentNo"]+"'>"+resultArr[i]["shipmentNo"]+"</a>",
 					  resultArr[i]["source"],
 					  resultArr[i]["destination"],
 					  resultArr[i]["dateOfBooking"] , 

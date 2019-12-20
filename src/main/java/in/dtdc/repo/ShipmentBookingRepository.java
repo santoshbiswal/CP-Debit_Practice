@@ -18,4 +18,5 @@ public interface ShipmentBookingRepository extends CrudRepository<ShipmentBookin
 	
 	@Query(value = "select s.CONSG_NO,s.SOURCE,s.DESTINATION,s.BOOKING_DATE_TIME,d.STATUS from SHIPMENT_BOOKING s , SHIPMENT_DELIVERY d WHERE s.CONSG_NO=:consignmentnumber and d.DELIVERY_CONSG_NO=:consignmentnumber",nativeQuery = true)
 	public List<Object[]> getShipmentBookingDetailsByConsgNo(@Param("consignmentnumber") String consignmentnumber);
+	
 }
